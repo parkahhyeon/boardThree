@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>로그인</title>
+    <link rel="stylesheet" th:href="@{/css/default.css}" />
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/content.css}" />
+    <link rel="stylesheet" th:href="@{/css/button.css}" />
+    <style>
+	</style>
+</head>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<body>
+<div id="login_wrap">
+    <div id="login_box">
+        <div class="login_con">
+            <div class="login_tit">
+                <h2>게시판 프로젝트</h2>
+                <p>LOG<i>IN</i></p>
+            </div>
+
+            <div class="login_input">
+                <form id="loginForm" onsubmit="return false;" autocomplete="off">
+                            <ul class="panel_wrap">
+                                <li class="panel_item" style="display: block;">
+                                    <div class="panel_inner" role="tabpanel" aria-controls="loinid">
+                                        <div class="id_pw_wrap">
+                                            <div class="input_row" id="id_line">
+                                                <input type="text" id="id" name="id" placeholder="아이디" title="아이디" class="input_text" maxlength="41" value="">
+                                                <span role="button" class="btn_delete" id="id_clear" style="display: none;">
+                                            <span class="icon_delete">
+												<span class="blind">삭제</span>
+                                            </span>
+                                        </span>
+                                            </div>
+                                            <div class="input_row" id="pw_line">
+                                                <input type="password" id="pw" name="pw" placeholder="비밀번호" title="비밀번호" class="input_text" maxlength="16">
+                                                <span role="button" class="btn_delete" id="pw_clear" style="display: none;">
+                                                <span class="icon_delete">
+                                                    <span class="blind">삭제</span>
+                                                </span>
+                                        </span>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="login_error_wrap" id="err_capslock" style="display: none;">
+                                            <div class="error_message">
+                                                <strong>CapsLock</strong>이 켜져 있습니다.
+                                            </div>
+                                        </div>
+
+                                        <div class="login_error_wrap" id="err_empty_id" style="display: none;">
+                                            <div class="error_message">
+                                                <strong>아이디</strong>를 입력해 주세요.
+                                            </div>
+                                        </div>
+
+                                        <div class="login_error_wrap" id="err_empty_pw" style="display: none;">
+                                            <div class="error_message">
+                                                <strong>비밀번호</strong>를 입력해 주세요.
+                                            </div>
+                                        </div>
+                                        <div class="login_error_wrap" id="err_common" style="display:none;">
+                                            <div class="error_message" style="width:90%">
+
+                                            </div>
+                                        </div>
+                                        <div class="btn_login_wrap">
+<br/>
+                                            <button type="button" onclick="login();" class="btn_login">로그인</button>
+                                            <button type="button" target="_blank" onclick="goToSignupPage();" class="signup_btn">회원가입</button>
+
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script th:src="@{/js/function.js}"></script>
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/js/common.js}"></script>
+<script src="https://kit.fontawesome.com/79613ae794.js" crossorigin="anonymous"></script>
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+        /*<!CDATA[*/
+
+        function goToSignupPage() {
+            window.location.href = "/signup.do";
+        }
+    </script>
+</th:block>
+</body>
+</html>
