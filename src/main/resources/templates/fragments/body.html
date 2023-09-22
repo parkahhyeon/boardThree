@@ -5,10 +5,18 @@
     <header>
         <div class="head">
             <h1>게시판 프로젝트</h1>
-            <div class="top_menu">
-                <button type="button" id="loginPageBtn" class="btns btn_st2" onclick="goToLogIn();">로그인</button>
-<!--                <div class="login_user"><strong><i class="far fa-user-circle"></i> 도뎡</strong>님 반갑습니다.</div>-->
-<!--                <div class="logout"><button type="button"><span class="skip_info">로그아웃</span><i class="fas fa-sign-out-alt"></i></button></div>-->
+<!--            <div class="top_menu">-->
+<!--                <button type="button" id="loginPageBtn" class="btns btn_st2" onclick="goToLogIn();">로그인</button>-->
+<!--&lt;!&ndash;                <div class="login_user"><strong><i class="far fa-user-circle"></i> 도뎡</strong>님 반갑습니다.</div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="logout"><button type="button"><span class="skip_info">로그아웃</span><i class="fas fa-sign-out-alt"></i></button></div>&ndash;&gt;-->
+<!--            </div>-->
+            <div th:if="${session.loginMember != null}" class="top_menu">
+                <div class="login_user"><strong><i class="far fa-user-circle"></i> [[ ${session.loginMember.name} ]]</strong>님 반갑습니다.</div>
+                <div class="logout">
+                    <form action="/logout" method="post">
+                        <button type="submit"><span class="skip_info">로그아웃</span><i class="fas fa-sign-out-alt"></i></button>
+                    </form>
+                </div>
             </div>
         </div>
     </header>
@@ -53,9 +61,8 @@
     <script th:inline="javascript">
         /*<!CDATA[*/
 
-        function goToLogIn() {
-            window.location.href = "/login.do";
-        }
+
+
     </script>
 </th:block>
 </body>

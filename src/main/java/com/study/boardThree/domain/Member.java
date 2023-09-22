@@ -9,5 +9,5 @@ public class Member {
     private String loginId;     // 로그인 ID
     private String name;        // 이름
     private String password;    // 비밀번호
-    private boolean deleteYn;   // 삭제 여부
+    private Boolean deleteYn;   // 삭제 여부
 }
